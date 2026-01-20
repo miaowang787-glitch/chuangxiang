@@ -503,3 +503,186 @@ textarea:focus {
     left: auto;
   }
 }
+
+/* 表单提交成功弹窗 */
+.form-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+  animation: popIn 0.4s ease;
+  max-width: 90%;
+  width: 380px;
+}
+
+.form-success::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+.form-success h3 {
+  color: #10b981;
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.form-success p {
+  color: var(--gray-600);
+  margin: 0.5rem 0;
+}
+
+.form-success strong {
+  color: var(--blue-700);
+}
+
+.form-success .info-summary {
+  font-size: 0.875rem;
+  background: var(--gray-200);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.form-success .primary {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 输入框焦点效果 */
+label.focused {
+  color: var(--blue-700);
+}
+
+label.focused input,
+label.focused textarea {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(24, 160, 216, 0.15);
+}
+
+/* 卡片悬停效果增强 */
+.about-grid article:hover,
+.service-grid article:hover,
+.culture-grid article:hover,
+.case-cards article:hover,
+.solution-list article:hover,
+.process-flow > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(10, 44, 90, 0.12);
+}
+
+.about-grid article,
+.service-grid article,
+.culture-grid article,
+.case-cards article,
+.solution-list article,
+.process-flow > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 按钮点击效果 */
+.primary:active {
+  transform: scale(0.96);
+}
+
+/* 快速咨询弹窗动画 */
+.contact-popover {
+  animation: slideUp 0.3s ease;
+}
+
+.contact-popover[hidden] {
+  display: none;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 统计数字动画 */
+.stats > div {
+  transition: transform 0.3s ease;
+}
+
+.stats > div:hover {
+  transform: scale(1.05);
+}
+
+.stats strong {
+  background: linear-gradient(135deg, #fff 0%, #a5f3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 导航链接下划线动画 */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+  left: 10%;
+}
